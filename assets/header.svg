@@ -27,20 +27,12 @@
   <path class="grid" d="M735 32V268M815 32V268M895 32V268M975 32V268M1055 32V268M735 72H1135M735 152H1135M735 232H1135" fill="none" stroke-width="1" opacity=".5"/>
   <path class="rule" d="M64 250H1136" fill="none" stroke-width="1"/>
 
-  <text class="muted" x="66" y="68" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="2">SOFTWARE / RESEARCH / LEARNING</text>
-  <text class="ink" x="62" y="145" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="-1.5">Hrishikesh Lenin</text>
-  <text class="muted" x="66" y="184" font-family="Arial, Helvetica, sans-serif" font-size="18">Student developer · co-founder at Axiom Research</text>
-  <path class="accent" d="M66 215H108" fill="none" stroke-width="3"/>
-  <text class="muted" x="124" y="220" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.2">TOOLS / SYSTEMS / RESEARCH</text>
-
+  <text class="ink" x="62" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="-1.5">Hrishikesh Lenin</text>
+  <text class="muted" x="66" y="179" font-family="Arial, Helvetica, sans-serif" font-size="22">Student developer · Axiom Research</text>
+  <path class="accent" d="M66 215H108" fill="none" stroke-width="2"/>
   <g fill="none" stroke-width="1.5">
     <path id="route" class="line" d="M760 192H825V112H905V192H985V72H1090"/>
     <path class="rule" d="M760 192H1090" stroke-dasharray="2 7"/>
-  </g>
-  <g class="muted" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing=".8">
-    <text x="756" y="220">QUESTION</text>
-    <text x="890" y="220">MODEL</text>
-    <text x="1035" y="220">RESULT</text>
   </g>
   <g class="paper" stroke-width="2">
     <circle class="line" cx="760" cy="192" r="5"/>
