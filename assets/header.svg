@@ -1,49 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
-  <title id="title">Hrishikesh Lenin — Student developer</title>
-  <desc id="desc">A restrained editorial banner with a technical signal diagram for research, learning, and software tools.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="250" viewBox="0 0 1200 250" role="img" aria-labelledby="title desc">
+  <title id="title">Hrishikesh Lenin — GitHub terminal profile</title>
+  <desc id="desc">A quiet terminal-inspired profile header with a subtle animated cursor and abstract project graph.</desc>
   <style>
-    .paper { fill: #f4f2ec; }
-    .rule { stroke: #d4d8d1; }
-    .ink { fill: #222a27; }
-    .muted { fill: #69736e; }
-    .accent { fill: #547c70; }
-    .line { stroke: #547c70; }
-    .grid { stroke: #dfe2dc; }
+    .bg { fill: #f6f6f3; }
+    .frame { stroke: #d5d8d3; }
+    .ink { fill: #252a27; }
+    .muted { fill: #747a75; }
+    .accent { fill: #557b6d; }
+    .line { stroke: #9aa49d; }
+    .dot { fill: #c4c9c4; }
+    .cursor { opacity: 1; }
     @media (prefers-color-scheme: dark) {
-      .paper { fill: #191e1c; }
-      .rule { stroke: #38413c; }
-      .ink { fill: #eeeee8; }
-      .muted { fill: #aab2ac; }
-      .accent { fill: #93b4a8; }
-      .line { stroke: #93b4a8; }
-      .grid { stroke: #2a322e; }
+      .bg { fill: #101211; }
+      .frame { stroke: #343a36; }
+      .ink { fill: #e7e9e5; }
+      .muted { fill: #a1a8a2; }
+      .accent { fill: #9ab5a8; }
+      .line { stroke: #64736a; }
+      .dot { fill: #68716b; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .travel { display: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { .cursor { display: none; } }
   </style>
-
-  <rect class="paper" width="1200" height="300"/>
-  <path class="grid" d="M735 32V268M815 32V268M895 32V268M975 32V268M1055 32V268M735 72H1135M735 152H1135M735 232H1135" fill="none" stroke-width="1" opacity=".5"/>
-  <path class="rule" d="M64 250H1136" fill="none" stroke-width="1"/>
-
-  <text class="ink" x="62" y="132" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="-1.5">Hrishikesh Lenin</text>
-  <text class="muted" x="66" y="179" font-family="Arial, Helvetica, sans-serif" font-size="22">Student developer · Axiom Research</text>
-  <path class="accent" d="M66 215H108" fill="none" stroke-width="2"/>
-  <g fill="none" stroke-width="1.5">
-    <path id="route" class="line" d="M760 192H825V112H905V192H985V72H1090"/>
-    <path class="rule" d="M760 192H1090" stroke-dasharray="2 7"/>
+  <rect class="bg" x="1" y="1" width="1198" height="248" rx="9"/>
+  <rect class="frame" x="1" y="1" width="1198" height="248" rx="9" fill="none"/>
+  <path class="frame" d="M1 43H1199" fill="none"/>
+  <circle class="dot" cx="25" cy="22" r="5"/><circle class="dot" cx="44" cy="22" r="5"/><circle class="dot" cx="63" cy="22" r="5"/>
+  <text class="muted" x="600" y="27" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13">hrishikesh@github: ~</text>
+  <text class="accent" x="58" y="101" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17">hrishikesh@github ~ $ whoami</text>
+  <text class="ink" x="58" y="157" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="39" font-weight="600" letter-spacing="-1.2">Hrishikesh Lenin</text>
+  <rect class="accent cursor" x="439" y="130" width="3" height="33">
+    <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <text class="muted" x="60" y="194" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">Student developer  /  Co-founder &amp; CTO, Axiom Research</text>
+  <g class="line" fill="none" stroke-width="1.5">
+    <path d="M820 181H900V120H982V181H1064V91H1130"/>
+    <path d="M820 211H1130" stroke-dasharray="2 7" opacity=".6"/>
   </g>
-  <g class="paper" stroke-width="2">
-    <circle class="line" cx="760" cy="192" r="5"/>
-    <circle class="line" cx="905" cy="192" r="5"/>
-    <circle class="line" cx="1090" cy="72" r="5"/>
-    <circle class="rule" cx="825" cy="112" r="4"/>
-    <circle class="rule" cx="985" cy="72" r="4"/>
+  <g class="bg" stroke-width="2">
+    <circle class="line" cx="820" cy="181" r="5"/><circle class="line" cx="982" cy="181" r="5"/><circle class="line" cx="1130" cy="91" r="5"/>
+    <circle class="frame" cx="900" cy="120" r="4"/><circle class="frame" cx="1064" cy="91" r="4"/>
   </g>
-  <circle class="travel accent" cx="760" cy="192" r="3">
-    <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
-      <mpath xlink:href="#route"/>
-    </animateMotion>
+  <circle class="accent" r="3">
+    <animateMotion dur="12s" repeatCount="indefinite"><mpath xlink:href="#route"/></animateMotion>
   </circle>
+  <path id="route" d="M820 181H900V120H982V181H1064V91H1130" fill="none"/>
 </svg>
