@@ -1,20 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
-  <title id="title">Hrishikesh Lenin — Software, research, learning</title>
-  <desc id="desc">A dark, minimal banner with a teal monogram and a short description of Hrishikesh's project areas.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101b24"/><stop offset="1" stop-color="#101311"/></linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#67e8b5"/><stop offset="1" stop-color="#5ec7d0"/></linearGradient>
-    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#9fb6b0" stroke-opacity=".075" stroke-width="1"/></pattern>
-  </defs>
-  <rect width="1280" height="320" rx="24" fill="url(#bg)"/>
-  <rect width="1280" height="320" rx="24" fill="url(#grid)"/>
-  <circle cx="1110" cy="60" r="220" fill="#48c5a0" opacity=".055"/>
-  <circle cx="1130" cy="65" r="155" fill="none" stroke="#67e8b5" stroke-opacity=".18"/>
-  <circle cx="1130" cy="65" r="112" fill="none" stroke="#67e8b5" stroke-opacity=".13"/>
-  <rect x="64" y="66" width="82" height="82" rx="22" fill="#19352f" stroke="#67e8b5" stroke-opacity=".55"/>
-  <text x="105" y="120" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="27" font-weight="700" fill="url(#accent)">HL</text>
-  <text x="64" y="204" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="43" font-weight="700" fill="#f3f7f5">Hrishikesh Lenin</text>
-  <text x="66" y="245" font-family="Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="18" fill="#b3c4bf">Building software for research, learning, and developer tools.</text>
-  <rect x="66" y="274" width="9" height="9" rx="4.5" fill="#67e8b5"/>
-  <text x="86" y="283" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="1.2" fill="#8fa59e">AXIOM  ·  SLICE  ·  AEGISDB</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Hrishikesh Lenin — Student developer</title>
+  <desc id="desc">A restrained editorial banner with a technical signal diagram for research, learning, and software tools.</desc>
+  <style>
+    .paper { fill: #f4f2ec; }
+    .rule { stroke: #d4d8d1; }
+    .ink { fill: #222a27; }
+    .muted { fill: #69736e; }
+    .accent { fill: #547c70; }
+    .line { stroke: #547c70; }
+    .grid { stroke: #dfe2dc; }
+    @media (prefers-color-scheme: dark) {
+      .paper { fill: #191e1c; }
+      .rule { stroke: #38413c; }
+      .ink { fill: #eeeee8; }
+      .muted { fill: #aab2ac; }
+      .accent { fill: #93b4a8; }
+      .line { stroke: #93b4a8; }
+      .grid { stroke: #2a322e; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .travel { display: none; }
+    }
+  </style>
+
+  <rect class="paper" width="1200" height="300"/>
+  <path class="grid" d="M735 32V268M815 32V268M895 32V268M975 32V268M1055 32V268M735 72H1135M735 152H1135M735 232H1135" fill="none" stroke-width="1" opacity=".5"/>
+  <path class="rule" d="M64 250H1136" fill="none" stroke-width="1"/>
+
+  <text class="muted" x="66" y="68" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="13" letter-spacing="2">SOFTWARE / RESEARCH / LEARNING</text>
+  <text class="ink" x="62" y="145" font-family="Georgia, 'Times New Roman', serif" font-size="54" letter-spacing="-1.5">Hrishikesh Lenin</text>
+  <text class="muted" x="66" y="184" font-family="Arial, Helvetica, sans-serif" font-size="18">Student developer · co-founder at Axiom Research</text>
+  <path class="accent" d="M66 215H108" fill="none" stroke-width="3"/>
+  <text class="muted" x="124" y="220" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.2">TOOLS / SYSTEMS / RESEARCH</text>
+
+  <g fill="none" stroke-width="1.5">
+    <path id="route" class="line" d="M760 192H825V112H905V192H985V72H1090"/>
+    <path class="rule" d="M760 192H1090" stroke-dasharray="2 7"/>
+  </g>
+  <g class="muted" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing=".8">
+    <text x="756" y="220">QUESTION</text>
+    <text x="890" y="220">MODEL</text>
+    <text x="1035" y="220">RESULT</text>
+  </g>
+  <g class="paper" stroke-width="2">
+    <circle class="line" cx="760" cy="192" r="5"/>
+    <circle class="line" cx="905" cy="192" r="5"/>
+    <circle class="line" cx="1090" cy="72" r="5"/>
+    <circle class="rule" cx="825" cy="112" r="4"/>
+    <circle class="rule" cx="985" cy="72" r="4"/>
+  </g>
+  <circle class="travel accent" cx="760" cy="192" r="3">
+    <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
+      <mpath xlink:href="#route"/>
+    </animateMotion>
+  </circle>
 </svg>
