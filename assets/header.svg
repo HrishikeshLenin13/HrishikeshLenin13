@@ -10,6 +10,7 @@
     .line { stroke: #9aa49d; }
     .dot { fill: #c4c9c4; }
     .cursor { opacity: 1; }
+    .trace { stroke: #557b6d; stroke-dasharray: 420; stroke-dashoffset: 420; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #101211; }
       .frame { stroke: #343a36; }
@@ -18,8 +19,9 @@
       .accent { fill: #9ab5a8; }
       .line { stroke: #64736a; }
       .dot { fill: #68716b; }
+      .trace { stroke: #9ab5a8; }
     }
-    @media (prefers-reduced-motion: reduce) { .cursor { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .cursor, .motion { display: none; } }
   </style>
   <rect class="bg" x="1" y="1" width="1198" height="248" rx="9"/>
   <rect class="frame" x="1" y="1" width="1198" height="248" rx="9" fill="none"/>
@@ -33,15 +35,17 @@
   </rect>
   <text class="muted" x="60" y="194" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15">Student developer  /  Co-founder &amp; CTO, Axiom Research</text>
   <g class="line" fill="none" stroke-width="1.5">
-    <path d="M820 181H900V120H982V181H1064V91H1130"/>
+    <path id="route" d="M820 181H900V120H982V181H1064V91H1130"/>
+    <path class="trace motion" d="M820 181H900V120H982V181H1064V91H1130" stroke-width="2">
+      <animate attributeName="stroke-dashoffset" values="420;0;0" keyTimes="0;.65;1" dur="12s" repeatCount="indefinite"/>
+    </path>
     <path d="M820 211H1130" stroke-dasharray="2 7" opacity=".6"/>
   </g>
   <g class="bg" stroke-width="2">
     <circle class="line" cx="820" cy="181" r="5"/><circle class="line" cx="982" cy="181" r="5"/><circle class="line" cx="1130" cy="91" r="5"/>
     <circle class="frame" cx="900" cy="120" r="4"/><circle class="frame" cx="1064" cy="91" r="4"/>
   </g>
-  <circle class="accent" r="3">
+  <circle class="accent motion" r="3">
     <animateMotion dur="12s" repeatCount="indefinite"><mpath xlink:href="#route"/></animateMotion>
   </circle>
-  <path id="route" d="M820 181H900V120H982V181H1064V91H1130" fill="none"/>
 </svg>
