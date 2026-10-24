@@ -23,6 +23,8 @@ hrishikesh@github ~ $ ls ./selected-work
 | [**CalcTutor**](https://github.com/HrishikeshLenin13/calctutor) | Interactive math lessons turn written problems into follow-along calculator key sequences, with a standalone calculator model.<br><sub>TypeScript · Next.js · React</sub> |
 | [**Gradelarp**](https://github.com/HrishikeshLenin13/gradelarp) | A grade dashboard that separates school-reported marks from manual what-if and GPA planning, with history and local backups.<br><sub>TypeScript · Next.js · React</sub> |
 
+[Browse the project directory](./PROJECTS.md) for more learning tools, systems projects, and browser experiments.
+
 ```text
 hrishikesh@github ~ $ cat ./toolbox.txt
 ```
