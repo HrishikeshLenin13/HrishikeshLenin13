@@ -25,6 +25,11 @@ def check(root: Path) -> list[str]:
         text = re.sub(r'(?ms)^ {0,3}(`{3,}|~{3,}).*?^ {0,3}\1[ \t]*$', '', text)
         text = re.sub(r'`+[^`]*`+', '', text)
         links = re.findall(r'!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', text)
+        definitions = {key.strip().casefold(): value for key,value in re.findall(r'^ {0,3}\[([^\]]+)\]:\s*(\S+)', text, re.M)}
+        for label, reference in re.findall(r'!?\[([^\]]+)\]\[([^\]]*)\]', text):
+            key=(reference or label).strip().casefold()
+            if key not in definitions: errors.append(f'{source.relative_to(root)}: undefined reference {key}')
+            else: links.append(definitions[key])
         links += re.findall(r'<img[^>]+src=[\'"]([^\'"]+)', text, re.I)
         for link in links:
             parts = urlsplit(link)

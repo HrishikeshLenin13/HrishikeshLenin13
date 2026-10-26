@@ -18,3 +18,7 @@ class LinkExtensions(unittest.TestCase):
         self.assertEqual(self.fixture('# Overview\n[ok](#overview)'), [])
         self.assertTrue(self.fixture('# Overview\n[bad](#missing)'))
         self.assertEqual(self.fixture('# Same\n# Same\n[ok](#same-1)'), [])
+
+    def test_reference_style_links(self):
+        self.assertEqual(self.fixture('[guide][g]\n[g]: GUIDE.md', {'GUIDE.md':'# Guide'}), [])
+        self.assertTrue(self.fixture('[broken][missing]'))
