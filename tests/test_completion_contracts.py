@@ -114,3 +114,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_035_svg_fragments_resolve_element_ids(self):
         self.fixture('[icon](icon.svg#mark)',{'icon.svg': '<svg><g id="mark"/></svg>'},True)
+
+    def test_036_svg_missing_fragments_fail(self):
+        self.fixture('[icon](icon.svg#missing)',{'icon.svg': '<svg><g id="mark"/></svg>'},False)
