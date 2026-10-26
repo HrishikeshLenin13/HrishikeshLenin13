@@ -20,7 +20,7 @@ class LinkTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             (root / 'a b.md').write_text('ok')
-            (root / 'README.md').write_text('[web](https://example.org/a) [part](#title) [local](a%20b.md)')
+            (root / 'README.md').write_text('# title\n[web](https://example.org/a) [part](#title) [local](a%20b.md)')
             self.assertEqual(links.check(root), [])
 
     def test_invalid_svg_is_reported(self):

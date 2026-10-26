@@ -13,3 +13,8 @@ class LinkExtensions(unittest.TestCase):
 
     def test_code_examples_are_not_navigation(self):
         self.assertEqual(self.fixture('```md\n[example](missing.md)\n```\n`[inline](missing.md)`'), [])
+
+    def test_heading_fragments_are_checked(self):
+        self.assertEqual(self.fixture('# Overview\n[ok](#overview)'), [])
+        self.assertTrue(self.fixture('# Overview\n[bad](#missing)'))
+        self.assertEqual(self.fixture('# Same\n# Same\n[ok](#same-1)'), [])

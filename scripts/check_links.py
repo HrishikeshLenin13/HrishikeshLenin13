@@ -6,6 +6,16 @@ import sys
 import xml.etree.ElementTree as ET
 
 
+def anchors(text: str) -> set[str]:
+    found=set(); counts={}
+    for heading in re.findall(r'^ {0,3}#{1,6}\s+(.+?)\s*#*$', text, re.M):
+        slug=re.sub(r'[^\w -]', '', heading.casefold()).replace(' ', '-')
+        index=counts.get(slug,0);counts[slug]=index+1
+        found.add(slug if not index else f'{slug}-{index}')
+    found.update(re.findall(r'\bid=[\'"]([^\'"]+)', text))
+    return found
+
+
 def check(root: Path) -> list[str]:
     errors = []
     for source in sorted(root.rglob('*.md')):
@@ -18,11 +28,13 @@ def check(root: Path) -> list[str]:
         links += re.findall(r'<img[^>]+src=[\'"]([^\'"]+)', text, re.I)
         for link in links:
             parts = urlsplit(link)
-            if parts.scheme or parts.netloc or not parts.path:
+            if parts.scheme or parts.netloc:
                 continue
-            target = source.parent / unquote(parts.path)
+            target = source.parent / unquote(parts.path) if parts.path else source
             if not target.is_file():
                 errors.append(f'{source.relative_to(root)}: missing {link}')
+            elif parts.fragment and target.suffix.lower() == '.md' and unquote(parts.fragment) not in anchors(target.read_text(encoding='utf-8')):
+                errors.append(f'{source.relative_to(root)}: missing anchor {link}')
     for source in sorted((root / 'assets').glob('*.svg')):
         try:
             ET.parse(source)
