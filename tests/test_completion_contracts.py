@@ -81,3 +81,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_024_external_http_destinations_are_not_fetched(self):
         self.fixture('[external](http://example.invalid/missing)',{},True)
+
+    def test_025_mailto_destinations_are_not_local_files(self):
+        self.fixture('[email](mailto:hello@example.test)',{},True)
