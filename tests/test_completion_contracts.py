@@ -135,3 +135,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_042_heading_case_normalization_preserves_unicode_letters(self):
         self.fixture('# Straße\n[link](#straße)',{},True)
+
+    def test_043_fragment_only_links_stay_in_the_current_document(self):
+        self.fixture('# Root\n[ok](#root)',{},True)
