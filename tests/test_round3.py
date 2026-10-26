@@ -21,3 +21,7 @@ class LinkRound3(unittest.TestCase):
             (self.root/'outside.md').symlink_to(outside)
             (self.root/'README.md').write_text('[escape](outside.md)')
             self.assertTrue(any('outside repository' in error for error in check(self.root)))
+    def test_svg_fragment_links_resolve_real_element_ids(self):
+        (self.root/'icon.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"><g id="mark"/></svg>')
+        (self.root/'README.md').write_text('[ok](icon.svg#mark)');self.assertEqual(check(self.root),[])
+        (self.root/'README.md').write_text('[bad](icon.svg#absent)');self.assertTrue(any('missing SVG anchor' in message for message in check(self.root)))

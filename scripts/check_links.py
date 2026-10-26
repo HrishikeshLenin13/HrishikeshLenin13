@@ -79,6 +79,11 @@ def check(root: Path) -> list[str]:
                 except (OSError,UnicodeError) as error:
                     errors.append(f'{source.relative_to(root)}: unreadable target {link}: {error}'); continue
                 if unquote(parts.fragment) not in found: errors.append(f'{source.relative_to(root)}: missing anchor {link}')
+            elif parts.fragment and target.suffix.lower() == '.svg':
+                try: ids = {element.attrib['id'] for element in ET.parse(target).iter() if 'id' in element.attrib}
+                except (ET.ParseError,OSError) as error:
+                    errors.append(f'{source.relative_to(root)}: invalid SVG target {link}: {error}'); continue
+                if unquote(parts.fragment) not in ids: errors.append(f'{source.relative_to(root)}: missing SVG anchor {link}')
     for source in sorted((root / 'assets').glob('*.svg')):
         try:
             ET.parse(source)

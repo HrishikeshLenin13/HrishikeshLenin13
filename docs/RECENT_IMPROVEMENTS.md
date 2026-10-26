@@ -32,3 +32,7 @@ Run from the repository root:
 python3 scripts/check_links.py && python3 -m unittest discover -s tests -v
 ```
 
+
+## Repository-portable link validation
+
+Traversal prunes Git, dependency, virtual-environment, and Python cache directories. Invalid text produces diagnostics rather than tracebacks. Heading fragments use visible link/HTML text and lowercase Unicode. Local links must resolve inside the chosen repository root, including symlink targets. SVG fragments must name an actual element ID. External URLs remain unfetched.
