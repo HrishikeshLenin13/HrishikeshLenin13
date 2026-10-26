@@ -49,7 +49,9 @@ def markdown_sources(root: Path):
 def check(root: Path) -> list[str]:
     errors = []
     for source in markdown_sources(root):
-        text = source.read_text(encoding='utf-8')
+        try: text = source.read_text(encoding='utf-8')
+        except (OSError,UnicodeError) as error:
+            errors.append(f'{source.relative_to(root)}: unreadable Markdown: {error}'); continue
         text = without_fences(text)
         text = re.sub(r'`+[^`]*`+', '', text)
         links = re.findall(r'!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', text)
@@ -68,12 +70,15 @@ def check(root: Path) -> list[str]:
                 target = target / "README.md"
             if not target.is_file():
                 errors.append(f'{source.relative_to(root)}: missing {link}')
-            elif parts.fragment and target.suffix.lower() == '.md' and unquote(parts.fragment) not in anchors(target.read_text(encoding='utf-8')):
-                errors.append(f'{source.relative_to(root)}: missing anchor {link}')
+            elif parts.fragment and target.suffix.lower() == '.md':
+                try: found = anchors(target.read_text(encoding='utf-8'))
+                except (OSError,UnicodeError) as error:
+                    errors.append(f'{source.relative_to(root)}: unreadable target {link}: {error}'); continue
+                if unquote(parts.fragment) not in found: errors.append(f'{source.relative_to(root)}: missing anchor {link}')
     for source in sorted((root / 'assets').glob('*.svg')):
         try:
             ET.parse(source)
-        except ET.ParseError as error:
+        except (ET.ParseError,OSError) as error:
             errors.append(f'{source.relative_to(root)}: invalid SVG: {error}')
     return errors
 

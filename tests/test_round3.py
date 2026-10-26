@@ -8,3 +8,6 @@ class LinkRound3(unittest.TestCase):
         for folder in ['.git','node_modules','.venv','__pycache__']:
             target=self.root/folder/'deep';target.mkdir(parents=True);(target/'bad.md').write_text('[bad](missing.md)')
         self.assertEqual(check(self.root),[])
+    def test_bad_utf8_becomes_a_diagnostic_instead_of_a_traceback(self):
+        (self.root/'bad.md').write_bytes(b'\xff')
+        self.assertTrue(any('unreadable Markdown' in message for message in check(self.root)))
