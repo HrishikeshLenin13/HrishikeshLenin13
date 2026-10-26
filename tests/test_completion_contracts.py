@@ -78,3 +78,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_023_external_https_destinations_are_not_fetched(self):
         self.fixture('[external](https://example.invalid/missing)',{},True)
+
+    def test_024_external_http_destinations_are_not_fetched(self):
+        self.fixture('[external](http://example.invalid/missing)',{},True)
