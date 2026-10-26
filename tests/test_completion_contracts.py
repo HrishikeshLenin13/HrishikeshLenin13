@@ -99,3 +99,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_030_missing_reference_definitions_fail(self):
         self.fixture('[guide][missing]',{},False)
+
+    def test_031_markdown_images_resolve_local_sources(self):
+        self.fixture('![icon](assets/icon.txt)',{'assets/icon.txt': 'data'},True)
