@@ -53,3 +53,4 @@ The checker uses the standard library and does not contact linked websites or co
 ## Developer resources
 
 - [Feature usage and API contracts](docs/RECENT_IMPROVEMENTS.md)
+- [Troubleshooting and recovery](docs/TROUBLESHOOTING.md)
