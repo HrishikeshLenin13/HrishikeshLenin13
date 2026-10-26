@@ -27,3 +27,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_006_percent_encoded_spaces_in_local_paths_resolve(self):
         self.fixture('[guide](my%20guide.md)',{'my guide.md': '# Guide'},True)
+
+    def test_007_query_parameters_do_not_change_local_file_resolution(self):
+        self.fixture('[guide](guide.md?view=1)',{'guide.md': '# Guide'},True)
