@@ -11,3 +11,7 @@ class LinkRound3(unittest.TestCase):
     def test_bad_utf8_becomes_a_diagnostic_instead_of_a_traceback(self):
         (self.root/'bad.md').write_bytes(b'\xff')
         self.assertTrue(any('unreadable Markdown' in message for message in check(self.root)))
+    def test_heading_slugs_follow_visible_link_and_html_text(self):
+        self.assertIn('read-the-guide',anchors('# Read [the guide](https://example.test)'))
+        self.assertIn('a--b',anchors('# <span>A &amp; B</span>'))
+        self.assertIn('straße',anchors('# Straße'))

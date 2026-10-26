@@ -31,7 +31,9 @@ def anchors(text: str) -> set[str]:
     text = without_fences(text)
     found=set(); counts={}
     for heading in re.findall(r'^ {0,3}#{1,6}\s+(.+?)\s*#*$', text, re.M):
-        slug=re.sub(r'[^\w -]', '', heading.casefold()).replace(' ', '-')
+        heading = re.sub(r'!?\[([^\]]*)\]\([^)]*\)', r'\1', heading)
+        heading = html.unescape(re.sub(r'<[^>]+>', '', heading))
+        slug=re.sub(r'[^\w -]', '', heading.lower()).replace(' ', '-')
         index=counts.get(slug,0);counts[slug]=index+1
         found.add(slug if not index else f'{slug}-{index}')
     found.update(re.findall(r'\bid=[\'"]([^\'"]+)', text))
