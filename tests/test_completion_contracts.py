@@ -63,3 +63,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_018_inline_code_links_are_not_navigation(self):
         self.fixture('`[example](missing.md)`',{},True)
+
+    def test_019_backtick_fenced_links_are_not_navigation(self):
+        self.fixture('```md\n[example](missing.md)\n```',{},True)
