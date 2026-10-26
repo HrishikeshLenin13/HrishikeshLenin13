@@ -69,3 +69,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_020_tilde_fenced_links_are_not_navigation(self):
         self.fixture('~~~~md\n[example](missing.md)\n~~~~',{},True)
+
+    def test_021_longer_closing_fences_close_code_examples(self):
+        self.fixture('```md\n[example](missing.md)\n````\n[ok](README.md)',{},True)
