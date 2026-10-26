@@ -141,3 +141,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_044_root_directory_targets_use_repository_readme(self):
         self.fixture('[root](/)',{},True)
+
+    def test_045_nested_document_links_resolve_from_their_parent(self):
+        self.fixture('[nested](docs/n.md)',{'docs/n.md': '[sibling](sibling.md)', 'docs/sibling.md': '# sibling'},True)
