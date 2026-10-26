@@ -72,3 +72,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_021_longer_closing_fences_close_code_examples(self):
         self.fixture('```md\n[example](missing.md)\n````\n[ok](README.md)',{},True)
+
+    def test_022_fenced_headings_do_not_create_fragments(self):
+        self.fixture('```md\n# Hidden\n```\n[link](#hidden)',{},False)
