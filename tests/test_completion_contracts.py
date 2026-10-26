@@ -24,3 +24,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_005_directories_without_readmes_are_not_valid_documents(self):
         self.fixture('[docs](docs/)',{'docs/file.txt': 'text'},False)
+
+    def test_006_percent_encoded_spaces_in_local_paths_resolve(self):
+        self.fixture('[guide](my%20guide.md)',{'my guide.md': '# Guide'},True)
