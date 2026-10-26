@@ -38,3 +38,14 @@ hrishikesh@github ~ $ ./links.sh
 ```
 
 [GitHub](https://github.com/HrishikeshLenin13) · [Axiom Research](https://axiommain.vercel.app)
+
+## Profile maintenance
+
+Project links live in [PROJECTS.md](PROJECTS.md). Local navigation and SVG integrity are checked on pushes and pull requests.
+
+```sh
+python3 scripts/check_links.py
+python3 -m unittest discover -s tests -v
+```
+
+The checker uses the standard library and does not contact linked websites or collect visitor data.
