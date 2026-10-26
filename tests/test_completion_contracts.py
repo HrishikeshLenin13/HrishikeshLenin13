@@ -15,3 +15,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_002_missing_relative_files_fail(self):
         self.fixture('[missing](no.md)',{},False)
+
+    def test_003_repository_root_links_resolve_from_nested_files(self):
+        self.fixture('[nested](docs/n.md)',{'docs/n.md': '[root](/README.md)'},True)
