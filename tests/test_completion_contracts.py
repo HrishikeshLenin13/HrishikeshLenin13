@@ -84,3 +84,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_025_mailto_destinations_are_not_local_files(self):
         self.fixture('[email](mailto:hello@example.test)',{},True)
+
+    def test_026_protocol_relative_links_are_not_local_paths(self):
+        self.fixture('[external](//example.invalid/path)',{},True)
