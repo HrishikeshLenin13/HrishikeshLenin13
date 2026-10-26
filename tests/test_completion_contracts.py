@@ -129,3 +129,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_040_code_fences_with_language_tags_are_ignored(self):
         self.fixture('```typescript\n[not a link](missing.md)\n```',{},True)
+
+    def test_041_headings_with_inline_code_keep_visible_names(self):
+        self.fixture('# Use `Client`\n[link](#use-client)',{},True)
