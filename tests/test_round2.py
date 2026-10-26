@@ -26,3 +26,12 @@ class LinkExtensions(unittest.TestCase):
     def test_repository_root_and_directory_links(self):
         self.assertEqual(self.fixture('[root](/docs/README.md) [dir](docs/)', {'docs/README.md':'# Docs'}), [])
         self.assertTrue(self.fixture('[dir](empty/)', {'empty/note.txt':'not a readme'}))
+
+    def test_json_cli_reports_errors_and_exit_status(self):
+        import contextlib,io,json
+        from scripts.check_links import main
+        with tempfile.TemporaryDirectory() as folder:
+            (Path(folder)/'README.md').write_text('[bad](missing.md)')
+            output=io.StringIO()
+            with contextlib.redirect_stdout(output): code=main(['--root',folder,'--json'])
+            self.assertEqual(code,1);self.assertFalse(json.loads(output.getvalue())['ok'])

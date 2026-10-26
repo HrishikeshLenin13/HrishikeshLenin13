@@ -3,6 +3,8 @@ from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
 import sys
+import argparse
+import json
 import xml.etree.ElementTree as ET
 
 
@@ -49,7 +51,15 @@ def check(root: Path) -> list[str]:
             errors.append(f'{source.relative_to(root)}: invalid SVG: {error}')
     return errors
 
+def main(argv=None):
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument('--json', action='store_true', help='emit machine-readable diagnostics')
+    args=parser.parse_args(argv)
+    if not args.root.is_dir(): parser.error('root must be a directory')
+    errors=check(args.root.resolve())
+    print(json.dumps({'ok':not errors,'errors':errors}) if args.json else ('\n'.join(errors) if errors else 'Local links and SVG assets are valid.'))
+    return int(bool(errors))
+
 if __name__ == '__main__':
-    errors = check(Path(__file__).resolve().parents[1])
-    print('\n'.join(errors) if errors else 'Local links and SVG assets are valid.')
-    sys.exit(bool(errors))
+    sys.exit(main())
