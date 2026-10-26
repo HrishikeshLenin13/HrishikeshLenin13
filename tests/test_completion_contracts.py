@@ -60,3 +60,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_017_explicit_html_ids_can_be_linked(self):
         self.fixture('<div id="custom"></div>\n[link](#custom)',{},True)
+
+    def test_018_inline_code_links_are_not_navigation(self):
+        self.fixture('`[example](missing.md)`',{},True)
