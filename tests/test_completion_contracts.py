@@ -45,3 +45,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_012_unicode_fragments_decode_before_slug_checks(self):
         self.fixture('## Café\n[link](#caf%C3%A9)',{},True)
+
+    def test_013_duplicate_headings_receive_numbered_suffixes(self):
+        self.fixture('# Same\n# Same\n# Same\n[link](#same-2)',{},True)
