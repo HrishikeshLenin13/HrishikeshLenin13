@@ -42,3 +42,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_011_missing_cross_file_fragments_fail(self):
         self.fixture('[link](guide.md#absent)',{'guide.md': '## Details'},False)
+
+    def test_012_unicode_fragments_decode_before_slug_checks(self):
+        self.fixture('## Café\n[link](#caf%C3%A9)',{},True)
