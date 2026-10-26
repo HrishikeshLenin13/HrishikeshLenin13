@@ -49,3 +49,7 @@ python3 -m unittest discover -s tests -v
 ```
 
 The checker uses the standard library and does not contact linked websites or collect visitor data.
+
+## Developer resources
+
+- [Feature usage and API contracts](docs/RECENT_IMPROVEMENTS.md)
