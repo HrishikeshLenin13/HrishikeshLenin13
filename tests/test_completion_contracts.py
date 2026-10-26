@@ -18,3 +18,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_003_repository_root_links_resolve_from_nested_files(self):
         self.fixture('[nested](docs/n.md)',{'docs/n.md': '[root](/README.md)'},True)
+
+    def test_004_directory_targets_resolve_readme_files(self):
+        self.fixture('[docs](docs/)',{'docs/README.md': '# Docs'},True)
