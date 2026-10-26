@@ -21,3 +21,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_004_directory_targets_resolve_readme_files(self):
         self.fixture('[docs](docs/)',{'docs/README.md': '# Docs'},True)
+
+    def test_005_directories_without_readmes_are_not_valid_documents(self):
+        self.fixture('[docs](docs/)',{'docs/file.txt': 'text'},False)
