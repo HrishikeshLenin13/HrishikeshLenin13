@@ -51,3 +51,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_014_heading_links_use_visible_text_for_slugs(self):
         self.fixture('# [API](https://example.test)\n[link](#api)',{},True)
+
+    def test_015_heading_html_uses_visible_text_for_slugs(self):
+        self.fixture('# <b>API</b>\n[link](#api)',{},True)
