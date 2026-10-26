@@ -33,3 +33,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_008_same_file_fragments_resolve(self):
         self.fixture('## Details\n[link](#details)',{},True)
+
+    def test_009_missing_same_file_fragments_fail(self):
+        self.fixture('## Details\n[link](#absent)',{},False)
