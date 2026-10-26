@@ -132,3 +132,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_041_headings_with_inline_code_keep_visible_names(self):
         self.fixture('# Use `Client`\n[link](#use-client)',{},True)
+
+    def test_042_heading_case_normalization_preserves_unicode_letters(self):
+        self.fixture('# Straße\n[link](#straße)',{},True)
