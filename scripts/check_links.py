@@ -8,7 +8,25 @@ import json
 import xml.etree.ElementTree as ET
 
 
+def without_fences(text: str) -> str:
+    """Ignore fenced examples, including fences closed by a longer marker."""
+    lines = []
+    fence = None
+    for line in text.splitlines(keepends=True):
+        marker = re.match(r'^ {0,3}(`{3,}|~{3,})(.*)$', line.rstrip('\r\n'))
+        if fence:
+            if marker and marker[1][0] == fence[0] and len(marker[1]) >= fence[1] and not marker[2].strip():
+                fence = None
+            continue
+        if marker and (marker[1][0] != '`' or '`' not in marker[2]):
+            fence = (marker[1][0], len(marker[1]))
+            continue
+        lines.append(line)
+    return ''.join(lines)
+
+
 def anchors(text: str) -> set[str]:
+    text = without_fences(text)
     found=set(); counts={}
     for heading in re.findall(r'^ {0,3}#{1,6}\s+(.+?)\s*#*$', text, re.M):
         slug=re.sub(r'[^\w -]', '', heading.casefold()).replace(' ', '-')
@@ -24,7 +42,7 @@ def check(root: Path) -> list[str]:
         if '.git' in source.parts:
             continue
         text = source.read_text(encoding='utf-8')
-        text = re.sub(r'(?ms)^ {0,3}(`{3,}|~{3,}).*?^ {0,3}\1[ \t]*$', '', text)
+        text = without_fences(text)
         text = re.sub(r'`+[^`]*`+', '', text)
         links = re.findall(r'!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', text)
         definitions = {key.strip().casefold(): value for key,value in re.findall(r'^ {0,3}\[([^\]]+)\]:\s*(\S+)', text, re.M)}

@@ -35,3 +35,22 @@ class LinkExtensions(unittest.TestCase):
             output=io.StringIO()
             with contextlib.redirect_stdout(output): code=main(['--root',folder,'--json'])
             self.assertEqual(code,1);self.assertFalse(json.loads(output.getvalue())['ok'])
+
+    def test_code_fences_do_not_create_heading_anchors(self):
+        for marker in ['```','~~~~']:
+            self.assertTrue(self.fixture(f'{marker}md\n# Not a heading\n{marker}\n[bad](#not-a-heading)'))
+            self.assertEqual(self.fixture(f'{marker}md\n# Same\n{marker}\n# Same\n[ok](#same)'),[])
+        self.assertTrue(self.fixture('```md\n# Hidden\n````\n[bad](#hidden)'))
+
+    def test_generated_duplicate_heading_links_and_json_parity(self):
+        import contextlib,io,json
+        from scripts.check_links import main
+        for size in [1,2,10,30]:
+            headings='\n'.join('# Same' for _ in range(size))
+            links='\n'.join(f'[heading](#same{("-"+str(i)) if i else ""})' for i in range(size))
+            self.assertEqual(self.fixture(headings+'\n'+links),[])
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'README.md').write_text('[bad](missing.md)')
+            output=io.StringIO()
+            with contextlib.redirect_stdout(output):status=main(['--root',str(root),'--json'])
+            self.assertEqual(status,1);self.assertEqual(json.loads(output.getvalue())['errors'],check(root))
