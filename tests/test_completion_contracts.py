@@ -90,3 +90,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_027_reference_style_links_resolve_definitions(self):
         self.fixture('[guide][g]\n[g]: guide.md',{'guide.md': '# Guide'},True)
+
+    def test_028_reference_labels_match_case_insensitively(self):
+        self.fixture('[guide][GUIDE]\n[guide]: guide.md',{'guide.md': '# Guide'},True)
