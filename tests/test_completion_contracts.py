@@ -54,3 +54,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_015_heading_html_uses_visible_text_for_slugs(self):
         self.fixture('# <b>API</b>\n[link](#api)',{},True)
+
+    def test_016_heading_entities_are_unescaped_before_slugging(self):
+        self.fixture('# A &amp; B\n[link](#a--b)',{},True)
