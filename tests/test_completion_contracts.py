@@ -30,3 +30,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_007_query_parameters_do_not_change_local_file_resolution(self):
         self.fixture('[guide](guide.md?view=1)',{'guide.md': '# Guide'},True)
+
+    def test_008_same_file_fragments_resolve(self):
+        self.fixture('## Details\n[link](#details)',{},True)
