@@ -87,3 +87,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_026_protocol_relative_links_are_not_local_paths(self):
         self.fixture('[external](//example.invalid/path)',{},True)
+
+    def test_027_reference_style_links_resolve_definitions(self):
+        self.fixture('[guide][g]\n[g]: guide.md',{'guide.md': '# Guide'},True)
