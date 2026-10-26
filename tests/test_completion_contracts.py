@@ -138,3 +138,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_043_fragment_only_links_stay_in_the_current_document(self):
         self.fixture('# Root\n[ok](#root)',{},True)
+
+    def test_044_root_directory_targets_use_repository_readme(self):
+        self.fixture('[root](/)',{},True)
