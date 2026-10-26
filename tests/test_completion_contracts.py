@@ -96,3 +96,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_029_collapsed_reference_labels_use_link_text(self):
         self.fixture('[guide][]\n[guide]: guide.md',{'guide.md': '# Guide'},True)
+
+    def test_030_missing_reference_definitions_fail(self):
+        self.fixture('[guide][missing]',{},False)
