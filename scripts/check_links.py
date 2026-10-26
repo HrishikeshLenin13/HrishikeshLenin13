@@ -1,6 +1,8 @@
 """Validate local Markdown links and inline image sources without network access."""
 from pathlib import Path
 import re
+import os
+import html
 from urllib.parse import unquote, urlsplit
 import sys
 import argparse
@@ -36,11 +38,17 @@ def anchors(text: str) -> set[str]:
     return found
 
 
+def markdown_sources(root: Path):
+    ignored = {'.git', 'node_modules', '.venv', '__pycache__'}
+    for directory, folders, files in os.walk(root, followlinks=False):
+        folders[:] = sorted(name for name in folders if name not in ignored)
+        for name in sorted(files):
+            if name.endswith('.md'): yield Path(directory) / name
+
+
 def check(root: Path) -> list[str]:
     errors = []
-    for source in sorted(root.rglob('*.md')):
-        if '.git' in source.parts:
-            continue
+    for source in markdown_sources(root):
         text = source.read_text(encoding='utf-8')
         text = without_fences(text)
         text = re.sub(r'`+[^`]*`+', '', text)
