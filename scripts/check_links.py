@@ -68,6 +68,8 @@ def check(root: Path) -> list[str]:
             if parts.scheme or parts.netloc:
                 continue
             target = (root / unquote(parts.path).lstrip("/")) if parts.path.startswith("/") else (source.parent / unquote(parts.path) if parts.path else source)
+            if not target.resolve().is_relative_to(root.resolve()):
+                errors.append(f'{source.relative_to(root)}: outside repository {link}'); continue
             if target.is_dir():
                 target = target / "README.md"
             if not target.is_file():

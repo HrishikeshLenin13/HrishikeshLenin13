@@ -15,3 +15,9 @@ class LinkRound3(unittest.TestCase):
         self.assertIn('read-the-guide',anchors('# Read [the guide](https://example.test)'))
         self.assertIn('a--b',anchors('# <span>A &amp; B</span>'))
         self.assertIn('straße',anchors('# Straße'))
+    def test_parent_and_symlink_escapes_are_not_machine_specific_successes(self):
+        with tempfile.TemporaryDirectory() as external:
+            outside=Path(external)/'guide.md';outside.write_text('# Outside')
+            (self.root/'outside.md').symlink_to(outside)
+            (self.root/'README.md').write_text('[escape](outside.md)')
+            self.assertTrue(any('outside repository' in error for error in check(self.root)))
