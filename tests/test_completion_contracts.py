@@ -123,3 +123,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_038_links_after_closed_fences_are_still_checked(self):
         self.fixture('```\nexample\n```\n[missing](no.md)',{},False)
+
+    def test_039_plain_text_without_links_is_valid(self):
+        self.fixture('A normal paragraph.',{},True)
