@@ -102,3 +102,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_031_markdown_images_resolve_local_sources(self):
         self.fixture('![icon](assets/icon.txt)',{'assets/icon.txt': 'data'},True)
+
+    def test_032_missing_markdown_image_sources_fail(self):
+        self.fixture('![icon](assets/missing.png)',{},False)
