@@ -35,7 +35,9 @@ def check(root: Path) -> list[str]:
             parts = urlsplit(link)
             if parts.scheme or parts.netloc:
                 continue
-            target = source.parent / unquote(parts.path) if parts.path else source
+            target = (root / unquote(parts.path).lstrip("/")) if parts.path.startswith("/") else (source.parent / unquote(parts.path) if parts.path else source)
+            if target.is_dir():
+                target = target / "README.md"
             if not target.is_file():
                 errors.append(f'{source.relative_to(root)}: missing {link}')
             elif parts.fragment and target.suffix.lower() == '.md' and unquote(parts.fragment) not in anchors(target.read_text(encoding='utf-8')):

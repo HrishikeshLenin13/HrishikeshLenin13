@@ -22,3 +22,7 @@ class LinkExtensions(unittest.TestCase):
     def test_reference_style_links(self):
         self.assertEqual(self.fixture('[guide][g]\n[g]: GUIDE.md', {'GUIDE.md':'# Guide'}), [])
         self.assertTrue(self.fixture('[broken][missing]'))
+
+    def test_repository_root_and_directory_links(self):
+        self.assertEqual(self.fixture('[root](/docs/README.md) [dir](docs/)', {'docs/README.md':'# Docs'}), [])
+        self.assertTrue(self.fixture('[dir](empty/)', {'empty/note.txt':'not a readme'}))
