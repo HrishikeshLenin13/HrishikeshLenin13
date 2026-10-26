@@ -75,3 +75,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_022_fenced_headings_do_not_create_fragments(self):
         self.fixture('```md\n# Hidden\n```\n[link](#hidden)',{},False)
+
+    def test_023_external_https_destinations_are_not_fetched(self):
+        self.fixture('[external](https://example.invalid/missing)',{},True)
