@@ -12,3 +12,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_001_relative_markdown_destinations_resolve(self):
         self.fixture('[guide](docs/guide.md)',{'docs/guide.md': '# Guide'},True)
+
+    def test_002_missing_relative_files_fail(self):
+        self.fixture('[missing](no.md)',{},False)
