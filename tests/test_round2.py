@@ -1,0 +1,15 @@
+from pathlib import Path
+import tempfile
+import unittest
+from scripts.check_links import check
+
+class LinkExtensions(unittest.TestCase):
+    def fixture(self, content, other=None):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);(root/'README.md').write_text(content)
+            for path,text in (other or {}).items():
+                target=root/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(text)
+            return check(root)
+
+    def test_code_examples_are_not_navigation(self):
+        self.assertEqual(self.fixture('```md\n[example](missing.md)\n```\n`[inline](missing.md)`'), [])

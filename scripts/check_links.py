@@ -12,6 +12,8 @@ def check(root: Path) -> list[str]:
         if '.git' in source.parts:
             continue
         text = source.read_text(encoding='utf-8')
+        text = re.sub(r'(?ms)^ {0,3}(`{3,}|~{3,}).*?^ {0,3}\1[ \t]*$', '', text)
+        text = re.sub(r'`+[^`]*`+', '', text)
         links = re.findall(r'!?\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', text)
         links += re.findall(r'<img[^>]+src=[\'"]([^\'"]+)', text, re.I)
         for link in links:
