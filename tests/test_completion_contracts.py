@@ -48,3 +48,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_013_duplicate_headings_receive_numbered_suffixes(self):
         self.fixture('# Same\n# Same\n# Same\n[link](#same-2)',{},True)
+
+    def test_014_heading_links_use_visible_text_for_slugs(self):
+        self.fixture('# [API](https://example.test)\n[link](#api)',{},True)
