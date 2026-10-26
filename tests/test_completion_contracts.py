@@ -39,3 +39,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_010_cross_file_fragments_resolve(self):
         self.fixture('[link](guide.md#details)',{'guide.md': '## Details'},True)
+
+    def test_011_missing_cross_file_fragments_fail(self):
+        self.fixture('[link](guide.md#absent)',{'guide.md': '## Details'},False)
