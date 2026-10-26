@@ -57,3 +57,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_016_heading_entities_are_unescaped_before_slugging(self):
         self.fixture('# A &amp; B\n[link](#a--b)',{},True)
+
+    def test_017_explicit_html_ids_can_be_linked(self):
+        self.fixture('<div id="custom"></div>\n[link](#custom)',{},True)
