@@ -126,3 +126,6 @@ class CompletionContracts(unittest.TestCase):
 
     def test_039_plain_text_without_links_is_valid(self):
         self.fixture('A normal paragraph.',{},True)
+
+    def test_040_code_fences_with_language_tags_are_ignored(self):
+        self.fixture('```typescript\n[not a link](missing.md)\n```',{},True)
