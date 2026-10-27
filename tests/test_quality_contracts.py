@@ -186,3 +186,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_059_reference_resolution_accent_upper(self):
         self.fixture('[text][ÉCOLE]\n\n[école]: target.md',{'target.md':'# Target'},True)
+
+    def test_060_reference_resolution_cjk(self):
+        self.fixture('[text][学習]\n\n[学習]: target.md',{'target.md':'# Target'},True)
