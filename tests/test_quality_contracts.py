@@ -165,3 +165,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_052_reference_resolution_dash(self):
         self.fixture('[text][my-label]\n\n[MY-LABEL]: target.md',{'target.md':'# Target'},True)
+
+    def test_053_reference_resolution_underscore(self):
+        self.fixture('[text][my_label]\n\n[MY_LABEL]: target.md',{'target.md':'# Target'},True)
