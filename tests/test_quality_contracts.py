@@ -189,3 +189,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_060_reference_resolution_cjk(self):
         self.fixture('[text][学習]\n\n[学習]: target.md',{'target.md':'# Target'},True)
+
+    def test_061_svg_fragment_valid_single(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><g id='x'/></svg>"},True)
