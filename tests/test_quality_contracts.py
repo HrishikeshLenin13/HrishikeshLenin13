@@ -171,3 +171,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_054_reference_resolution_inner_space(self):
         self.fixture('[text][my label]\n\n[MY LABEL]: target.md',{'target.md':'# Target'},True)
+
+    def test_055_reference_resolution_tab(self):
+        self.fixture('[text][\tlabel\t]\n\n[label]: target.md',{'target.md':'# Target'},True)
