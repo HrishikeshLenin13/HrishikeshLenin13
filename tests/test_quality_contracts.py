@@ -195,3 +195,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_062_svg_fragment_valid_double(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':'<svg><g id="x"/></svg>'},True)
+
+    def test_063_svg_fragment_missing(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':'<svg/>'},False)
