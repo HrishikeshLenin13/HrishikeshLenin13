@@ -81,3 +81,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_024_visible_heading_slug_underscore(self):
         self.fixture('# snake_case\n[x](#snake_case)',{},True)
+
+    def test_025_visible_heading_slug_dash(self):
+        self.fixture('# one-two\n[x](#one-two)',{},True)
