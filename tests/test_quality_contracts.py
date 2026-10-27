@@ -48,3 +48,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_013_encoded_local_path_13(self):
         self.fixture('[x](dot.name.md#target)',{'dot.name.md':'# Target'},True)
+
+    def test_014_encoded_local_path_14(self):
+        self.fixture('[x](docs/nested/topic.md#target)',{'docs/nested/topic.md':'# Target'},True)
