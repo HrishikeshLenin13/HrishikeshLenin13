@@ -72,3 +72,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_021_visible_heading_slug_entity(self):
         self.fixture('# Fish &amp; Chips\n[x](#fish--chips)',{},True)
+
+    def test_022_visible_heading_slug_unicode(self):
+        self.fixture('# Café 学習\n[x](#caf%C3%A9-%E5%AD%A6%E7%BF%92)',{},True)
