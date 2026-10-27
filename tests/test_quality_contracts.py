@@ -21,3 +21,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_004_encoded_local_path_4(self):
         self.fixture('[x](caf%C3%A9.md#target)',{'café.md':'# Target'},True)
+
+    def test_005_encoded_local_path_5(self):
+        self.fixture('[x](%E5%AD%A6%E7%BF%92.md#target)',{'学習.md':'# Target'},True)
