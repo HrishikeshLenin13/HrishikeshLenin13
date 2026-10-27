@@ -24,3 +24,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_005_encoded_local_path_5(self):
         self.fixture('[x](%E5%AD%A6%E7%BF%92.md#target)',{'学習.md':'# Target'},True)
+
+    def test_006_encoded_local_path_6(self):
+        self.fixture('[x](emoji%F0%9F%93%9A.md#target)',{'emoji📚.md':'# Target'},True)
