@@ -45,3 +45,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_012_encoded_local_path_12(self):
         self.fixture('[x](a-b.md#target)',{'a-b.md':'# Target'},True)
+
+    def test_013_encoded_local_path_13(self):
+        self.fixture('[x](dot.name.md#target)',{'dot.name.md':'# Target'},True)
