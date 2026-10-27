@@ -66,3 +66,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_019_visible_heading_slug_link(self):
         self.fixture('# [Link](https://example.invalid)\n[x](#link)',{},True)
+
+    def test_020_visible_heading_slug_html(self):
+        self.fixture('# <em>Visible</em>\n[x](#visible)',{},True)
