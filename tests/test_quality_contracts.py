@@ -225,3 +225,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_072_svg_fragment_entity_id(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg id='&#120;'/>"},True)
+
+    def test_073_svg_fragment_comment_not_id(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><!-- id='x' --></svg>"},False)
