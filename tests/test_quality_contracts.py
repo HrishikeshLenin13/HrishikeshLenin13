@@ -69,3 +69,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_020_visible_heading_slug_html(self):
         self.fixture('# <em>Visible</em>\n[x](#visible)',{},True)
+
+    def test_021_visible_heading_slug_entity(self):
+        self.fixture('# Fish &amp; Chips\n[x](#fish--chips)',{},True)
