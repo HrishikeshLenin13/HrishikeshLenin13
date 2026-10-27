@@ -60,3 +60,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_017_visible_heading_slug_italic(self):
         self.fixture('# *Italic*\n[x](#italic)',{},True)
+
+    def test_018_visible_heading_slug_code(self):
+        self.fixture('# `Code`\n[x](#code)',{},True)
