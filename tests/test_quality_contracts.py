@@ -108,3 +108,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_033_fenced_example_ignored_3(self):
         self.fixture('`````\n[missing](missing.md)\n``````\n# Real\n[ok](#real)',{},True)
+
+    def test_034_fenced_example_ignored_4(self):
+        self.fixture('~~~\n[missing](missing.md)\n~~~~\n# Real\n[ok](#real)',{},True)
