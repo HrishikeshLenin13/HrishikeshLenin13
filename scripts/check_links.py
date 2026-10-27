@@ -64,7 +64,11 @@ def check(root: Path) -> list[str]:
             else: links.append(definitions[key])
         links += re.findall(r'<img[^>]+src=[\'"]([^\'"]+)', text, re.I)
         for link in links:
-            parts = urlsplit(link)
+            try:
+                parts = urlsplit(link)
+            except ValueError as error:
+                errors.append(f'{source.relative_to(root)}: invalid link {link}: {error}')
+                continue
             if parts.scheme or parts.netloc:
                 continue
             target = (root / unquote(parts.path).lstrip("/")) if parts.path.startswith("/") else (source.parent / unquote(parts.path) if parts.path else source)

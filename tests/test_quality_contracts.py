@@ -234,3 +234,8 @@ class QualityContracts(unittest.TestCase):
 
     def test_075_svg_fragment_uppercase_id(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg id='X'/>"},False)
+
+    def test_malformed_url_authorities_report_errors_without_raising(self):
+        for destination in ['https://[missing','https://[::1','https://[xyz]']:
+            with self.subTest(destination=destination):
+                self.fixture('[bad]('+destination+')',{},False)
