@@ -99,3 +99,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_030_visible_heading_slug_mixed(self):
         self.fixture('# A `B` **C**\n[x](#a-b-c)',{},True)
+
+    def test_031_fenced_example_ignored_1(self):
+        self.fixture('```\n[missing](missing.md)\n````\n# Real\n[ok](#real)',{},True)
