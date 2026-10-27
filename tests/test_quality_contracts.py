@@ -153,3 +153,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_048_reference_resolution_space(self):
         self.fixture('[text][ label ]\n\n[label]: target.md',{'target.md':'# Target'},True)
+
+    def test_049_reference_resolution_unicode(self):
+        self.fixture('[text][Café]\n\n[café]: target.md',{'target.md':'# Target'},True)
