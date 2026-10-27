@@ -84,3 +84,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_025_visible_heading_slug_dash(self):
         self.fixture('# one-two\n[x](#one-two)',{},True)
+
+    def test_026_visible_heading_slug_digits(self):
+        self.fixture('# 123 Topic\n[x](#123-topic)',{},True)
