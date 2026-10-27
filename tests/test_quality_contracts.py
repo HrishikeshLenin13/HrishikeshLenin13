@@ -147,3 +147,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_046_reference_resolution_case(self):
         self.fixture('[text][Label]\n\n[label]: target.md',{'target.md':'# Target'},True)
+
+    def test_047_reference_resolution_case_upper(self):
+        self.fixture('[text][LABEL]\n\n[label]: target.md',{'target.md':'# Target'},True)
