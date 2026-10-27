@@ -90,3 +90,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_027_visible_heading_slug_closing(self):
         self.fixture('# Title ###\n[x](#title)',{},True)
+
+    def test_028_visible_heading_slug_spaces(self):
+        self.fixture('# Two  Spaces\n[x](#two--spaces)',{},True)
