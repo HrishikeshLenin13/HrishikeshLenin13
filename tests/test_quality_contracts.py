@@ -87,3 +87,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_026_visible_heading_slug_digits(self):
         self.fixture('# 123 Topic\n[x](#123-topic)',{},True)
+
+    def test_027_visible_heading_slug_closing(self):
+        self.fixture('# Title ###\n[x](#title)',{},True)
