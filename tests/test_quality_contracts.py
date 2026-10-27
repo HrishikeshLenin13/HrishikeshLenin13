@@ -18,3 +18,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_003_encoded_local_path_3(self):
         self.fixture('[x](two%20words.md#target)',{'two words.md':'# Target'},True)
+
+    def test_004_encoded_local_path_4(self):
+        self.fixture('[x](caf%C3%A9.md#target)',{'café.md':'# Target'},True)
