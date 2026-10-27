@@ -51,3 +51,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_014_encoded_local_path_14(self):
         self.fixture('[x](docs/nested/topic.md#target)',{'docs/nested/topic.md':'# Target'},True)
+
+    def test_015_encoded_local_path_15(self):
+        self.fixture('[x](CAPS.md#target)',{'CAPS.md':'# Target'},True)
