@@ -156,3 +156,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_049_reference_resolution_unicode(self):
         self.fixture('[text][Café]\n\n[café]: target.md',{'target.md':'# Target'},True)
+
+    def test_050_reference_resolution_casefold(self):
+        self.fixture('[text][STRASSE]\n\n[straße]: target.md',{'target.md':'# Target'},True)
