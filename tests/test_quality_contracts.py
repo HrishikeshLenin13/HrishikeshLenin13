@@ -231,3 +231,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_074_svg_fragment_duplicate_id(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><g id='x'/><g id='x'/></svg>"},True)
+
+    def test_075_svg_fragment_uppercase_id(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg id='X'/>"},False)
