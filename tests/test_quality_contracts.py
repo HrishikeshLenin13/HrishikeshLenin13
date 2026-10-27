@@ -192,3 +192,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_061_svg_fragment_valid_single(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><g id='x'/></svg>"},True)
+
+    def test_062_svg_fragment_valid_double(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':'<svg><g id="x"/></svg>'},True)
