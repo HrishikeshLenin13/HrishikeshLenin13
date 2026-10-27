@@ -204,3 +204,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_065_svg_fragment_nested(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><g><path id='x'/></g></svg>"},True)
+
+    def test_066_svg_fragment_namespace(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg xmlns='http://www.w3.org/2000/svg'><g id='x'/></svg>"},True)
