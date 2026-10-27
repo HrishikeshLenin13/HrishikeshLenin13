@@ -213,3 +213,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_068_svg_fragment_root_id(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg id='x'/>"},True)
+
+    def test_069_svg_fragment_descendant(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><g id='y'><g id='x'/></g></svg>"},True)
