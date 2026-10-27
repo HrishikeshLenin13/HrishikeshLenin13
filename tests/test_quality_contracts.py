@@ -201,3 +201,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_064_svg_fragment_malformed(self):
         self.fixture('[icon](icon.svg#x)',{'icon.svg':'<svg>'},False)
+
+    def test_065_svg_fragment_nested(self):
+        self.fixture('[icon](icon.svg#x)',{'icon.svg':"<svg><g><path id='x'/></g></svg>"},True)
