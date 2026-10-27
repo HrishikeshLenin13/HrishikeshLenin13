@@ -177,3 +177,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_056_reference_resolution_dot(self):
         self.fixture('[text][a.b]\n\n[A.B]: target.md',{'target.md':'# Target'},True)
+
+    def test_057_reference_resolution_colon(self):
+        self.fixture('[text][a:b]\n\n[A:B]: target.md',{'target.md':'# Target'},True)
