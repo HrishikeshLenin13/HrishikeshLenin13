@@ -75,3 +75,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_022_visible_heading_slug_unicode(self):
         self.fixture('# Café 学習\n[x](#caf%C3%A9-%E5%AD%A6%E7%BF%92)',{},True)
+
+    def test_023_visible_heading_slug_punctuation(self):
+        self.fixture('# One: Two!\n[x](#one-two)',{},True)
