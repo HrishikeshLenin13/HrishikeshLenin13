@@ -54,3 +54,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_015_encoded_local_path_15(self):
         self.fixture('[x](CAPS.md#target)',{'CAPS.md':'# Target'},True)
+
+    def test_016_visible_heading_slug_bold(self):
+        self.fixture('# **Bold**\n[x](#bold)',{},True)
