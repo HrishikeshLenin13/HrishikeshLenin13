@@ -96,3 +96,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_029_visible_heading_slug_bracket(self):
         self.fixture('# [Plain]\n[x](#plain)',{},True)
+
+    def test_030_visible_heading_slug_mixed(self):
+        self.fixture('# A `B` **C**\n[x](#a-b-c)',{},True)
