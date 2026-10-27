@@ -33,3 +33,6 @@ class QualityContracts(unittest.TestCase):
 
     def test_008_encoded_local_path_8(self):
         self.fixture('[x](a%3Fb.md#target)',{'a?b.md':'# Target'},True)
+
+    def test_009_encoded_local_path_9(self):
+        self.fixture('[x](a%25b.md#target)',{'a%b.md':'# Target'},True)
