@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070a0d" />
+  <meta name="description" content="Hrishikesh Lenin — developer building compilers, database engines, robotics tools, and software that makes complex ideas understandable." />
+  <meta property="og:title" content="Hrishikesh Lenin | Systems, Software & Ideas" />
+  <meta property="og:description" content="An interactive 3D engineering portfolio — from compilers and distributed systems to robotics and education." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hrishikesh-portfolio.vercel.app/" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>Hrishikesh Lenin — Systems & Software</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer type="module" src="/portfolio.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#work">Skip to projects</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Hrishikesh Lenin, back to top"><span class="brand-mark">H<span class="star">✳</span>L</span><span class="brand-caption">/ SYSTEMS LAB</span></a>
+    <nav class="primary-nav" aria-label="Main navigation"><a href="#work">01 / WORK</a><a href="#about">02 / ABOUT</a><a href="#contact">03 / CONNECT</a></nav>
+    <a class="header-cta" href="https://github.com/HrishikeshLenin13" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> PORTFOLIO / 2026 <span class="eyebrow-line"></span> ENGINEER IN PROGRESS</div>
+        <h1 id="hero-title">Building<br><em>what's</em><br><span class="heading-outline">beneath.</span></h1>
+        <p class="hero-intro">I’m <strong>Hrishikesh Lenin.</strong> I explore the systems behind the software we use, from compilers and databases to robotics and learning tools.</p>
+        <div class="hero-actions"><a class="btn btn-solid" href="#work">EXPLORE PROJECTS <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="#about">MORE ABOUT ME <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-bottom"><span>BASED IN TEXAS, USA</span><span class="thin-line"></span><span>SCROLL TO EXPLORE <span aria-hidden="true">↓</span></span></div>
+      </div>
+      <div class="hero-visual" aria-label="Interactive three-dimensional engineering visualization with selectable projects">
+        <div class="visual-head"><span><span class="terminal-square"></span> ORBITAL INDEX // 01</span><span class="online-label">● LIVE SIMULATION</span></div>
+        <canvas id="orbit" tabindex="0" role="img" aria-label="Interactive 3D orbit with nine project nodes. Drag to rotate, or use the project selector buttons below.">A moving 3D visualization of software projects.</canvas>
+        <div class="coordinate-label coordinate-left" aria-hidden="true">X: 40.621 / Y: 73.002</div>
+        <div class="coordinate-label coordinate-right" aria-hidden="true">DRAG TO ORBIT // SELECT A NODE</div>
+        <div class="visual-controls"><button id="motion-toggle" type="button" aria-pressed="false">◉ PAUSE MOTION</button><span>01 — 09 / SELECTED WORK</span></div>
+        <div class="focus-panel" aria-live="polite"><div class="focus-line"><span class="focus-tag">CURRENT SIGNAL <span id="focus-number">01</span> / 09</span><span class="focus-nav"><button id="focus-prev" type="button" aria-label="Previous featured project">←</button><button id="focus-next" type="button" aria-label="Next featured project">→</button></span></div><h2 id="focus-title">Helix</h2><p id="focus-description">An optimizing compiler you can inspect.</p><a id="focus-link" href="#work">VIEW PROJECT <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+    <section class="strip" aria-label="Focus areas"><span>COMPILERS</span><i>✳</i><span>DISTRIBUTED SYSTEMS</span><i>✳</i><span>DATABASE INTERNALS</span><i>✳</i><span>ROBOTICS</span><i>✳</i><span>LEARNING TOOLS</span></section>
+    <section class="work-section section-shell" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="section-kicker">01 / THE WORK</p><h2 id="work-title">Selected <em>systems.</em></h2><p class="section-lede">Projects that go deeper than the interface. Built to learn how things work, then make those ideas useful.</p></div><span class="section-counter">INDEX <strong>01–09</strong></span></div>
+      <div class="filter-row" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all" aria-pressed="true">ALL PROJECTS <sup>09</sup></button><button class="filter" data-filter="systems" aria-pressed="false">SYSTEMS</button><button class="filter" data-filter="product" aria-pressed="false">PRODUCTS</button><button class="filter" data-filter="impact" aria-pressed="false">IMPACT</button></div>
+      <div class="project-grid" id="project-grid"></div>
+      <div class="work-footnote"><span>NOTE_01</span><p>Some systems projects are in private repositories. Descriptions link to source code when publicly available. Reported capabilities and benchmarks should not be mistaken for independently verified results.</p></div>
+    </section>
+    <section class="manifesto section-shell" id="about" aria-labelledby="about-title"><div class="manifesto-left"><p class="section-kicker">02 / THE PERSON BEHIND THE CODE</p><h2 id="about-title">Curiosity,<br>compiled<span class="accent">.</span></h2><p>I’m a student developer and co-founder of <a href="https://github.com/HrishikeshLenin13/AxiomResearch" target="_blank" rel="noopener noreferrer">Axiom Research ↗</a>. My work spans low-level systems, developer tooling, education, and hardware-adjacent software.</p><p>What ties it together is a simple obsession: understanding complicated systems well enough to build one, break it, test it, and explain it.</p><a class="btn btn-outline" href="https://github.com/HrishikeshLenin13" target="_blank" rel="noopener noreferrer">EXPLORE ALL GITHUB WORK <span aria-hidden="true">↗</span></a></div><div class="manifesto-right"><div class="manifesto-emblem" aria-hidden="true"><div class="emblem-a">H</div><div class="emblem-orbit one"></div><div class="emblem-orbit two"></div><div class="emblem-cross">✳</div></div><div class="principles"><div><span>01 /</span> BUILD FROM FIRST PRINCIPLES</div><div><span>02 /</span> TEST THE HARD PARTS</div><div><span>03 /</span> MAKE COMPLEXITY LEGIBLE</div></div></div></section>
+    <section class="contact section-shell" id="contact" aria-labelledby="contact-title"><div class="contact-top"><p class="section-kicker">03 / LET'S CONNECT</p><span>NEW CONNECTION ESTABLISHED <span class="live-dot"></span></span></div><h2 id="contact-title">Have an idea<br>worth <em>building?</em></h2><p>Interested in engineering, research, and open-source collaborations. Explore the code or start a conversation through GitHub.</p><a class="contact-link" href="https://github.com/HrishikeshLenin13" target="_blank" rel="noopener noreferrer"><span>FIND ME ON GITHUB</span><span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="footer"><a href="#home" class="footer-brand">H✳L <span>/ BACK TO TOP ↑</span></a><span>DESIGNED & BUILT FOR THE CURIOUS.</span><span>© <span id="year">2026</span> HRISHIKESH LENIN</span></footer>
+</body>
+</html>
