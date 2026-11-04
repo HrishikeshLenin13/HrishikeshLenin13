@@ -46,7 +46,7 @@ def markdown_sources(root: Path):
     for directory, folders, files in os.walk(root, followlinks=False):
         folders[:] = sorted(name for name in folders if name not in ignored)
         for name in sorted(files):
-            if name.endswith('.md'): yield Path(directory) / name
+            if Path(name).suffix.lower() in {'.md','.markdown'}: yield Path(directory) / name
 
 
 class _HtmlLinks(HTMLParser):
@@ -89,7 +89,7 @@ def check(root: Path) -> list[str]:
                 target = target / "README.md"
             if not target.is_file():
                 errors.append(f'{source.relative_to(root)}: missing {link}')
-            elif parts.fragment and target.suffix.lower() == '.md':
+            elif parts.fragment and target.suffix.lower() in {'.md','.markdown'}:
                 try: found = anchors(target.read_text(encoding='utf-8'))
                 except (OSError,UnicodeError) as error:
                     errors.append(f'{source.relative_to(root)}: unreadable target {link}: {error}'); continue
