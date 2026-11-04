@@ -63,6 +63,7 @@ def check(root: Path) -> list[str]:
             if key not in definitions: errors.append(f'{source.relative_to(root)}: undefined reference {key}')
             else: links.append(definitions[key])
         links += re.findall(r'<img[^>]+src=[\'"]([^\'"]+)', text, re.I)
+        links += re.findall(r'<a\b[^>]*\bhref=[\'"]([^\'"]+)', text, re.I)
         for link in links:
             try:
                 parts = urlsplit(link)
