@@ -3,6 +3,7 @@ from pathlib import Path
 import re
 import os
 import html
+from html.parser import HTMLParser
 from urllib.parse import unquote, urlsplit
 import sys
 import argparse
@@ -48,6 +49,16 @@ def markdown_sources(root: Path):
             if name.endswith('.md'): yield Path(directory) / name
 
 
+class _HtmlLinks(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links=[]
+    def handle_starttag(self,tag,attrs):
+        key='href' if tag=='a' else 'src' if tag=='img' else None
+        if key is not None:
+            self.links.extend(value for name,value in attrs if name==key and value is not None)
+
+
 def check(root: Path) -> list[str]:
     errors = []
     for source in markdown_sources(root):
@@ -62,8 +73,7 @@ def check(root: Path) -> list[str]:
             key=(reference or label).strip().casefold()
             if key not in definitions: errors.append(f'{source.relative_to(root)}: undefined reference {key}')
             else: links.append(definitions[key])
-        links += re.findall(r'<img[^>]+src=[\'"]([^\'"]+)', text, re.I)
-        links += re.findall(r'<a\b[^>]*\bhref=[\'"]([^\'"]+)', text, re.I)
+        parser=_HtmlLinks();parser.feed(text);links.extend(parser.links)
         for link in links:
             try:
                 parts = urlsplit(link)
